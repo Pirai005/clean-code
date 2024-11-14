@@ -14,6 +14,6 @@ void compare_print_string()
 }
 
 int main() {
-    printString();
+    compare_print_string();
     return 0;
 }
