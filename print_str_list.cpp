@@ -2,7 +2,8 @@
 #include <vector>
 #include <string>
 
-int main() {
+void printString()
+{
     std::vector<std::string> names = {"Bosch", "Robert","Lenovo", "Bengaluru"};
 
     for (const auto& name : names) {
@@ -10,6 +11,9 @@ int main() {
             std::cout << name << std::endl;
         }
     }
-    
+}
+
+int main() {
+    printString();
     return 0;
 }
