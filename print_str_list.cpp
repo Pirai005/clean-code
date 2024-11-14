@@ -2,10 +2,8 @@
 #include <vector>
 #include <string>
 
-void compare_print_string()
+void printNamesStartingWithB(std::vector<std::string>& names)
 {
-    std::vector<std::string> names = {"Bosch", "Robert","Lenovo", "Bengaluru"};
-
     for (const auto& name : names) {
         if (name.front() == 'B') {
             std::cout << name << std::endl;
@@ -14,6 +12,7 @@ void compare_print_string()
 }
 
 int main() {
-    compare_print_string();
+    std::vector<std::string> names = {"Bosch", "Robert","Lenovo", "Bengaluru"};
+    printNamesStartingWithB(names);
     return 0;
 }
