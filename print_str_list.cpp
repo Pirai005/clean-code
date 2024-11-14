@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-void printString()
+void compare_print_string()
 {
     std::vector<std::string> names = {"Bosch", "Robert","Lenovo", "Bengaluru"};
 
