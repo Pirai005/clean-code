@@ -1,0 +1,116 @@
+// Before Update
+#include <iostream>
+using namespace std;
+class BoschTPMS{
+      public:
+     ~BoschTPMS(){
+            cout<<"BoschTPMS Destructed"<<endl;
+        }
+      BoschTPMS(){
+            cout<<"BoschTPMS Constructed"<<endl;
+        }
+};
+class Engine{
+    public:
+     ~Engine(){
+            cout<<"Engine Destructed"<<endl;
+        }
+      Engine(){
+            cout<<"Engine Constructed"<<endl;
+        }
+};
+class Car{
+    Engine engine;
+    BoschTPMS tpms;
+    public:
+        Car(){
+            cout<<"Car Constructed"<<endl;
+        }
+        ~Car(){
+            cout<<"Car Destructed"<<endl;
+        }
+};
+void buildCar(){
+    Car alto;
+}
+int main() {
+    // Write C++ code here
+   buildCar();
+    return 0;
+}
+
+//After Update - v1
+#include <iostream>
+using namespace std;
+class RC{
+    string vehicleRegNo;
+     public:
+	~RC(){
+	cout<<"RC Destructed"<<endl;
+     }
+     RC(){
+	 cout<<"RC Constructed"<<endl;
+     }
+	};
+ 
+class NexDigitronTPMS{
+public:
+    ~NexDigitronTPMS(){
+        cout<<"NexDigitronTPMS Destructed"<<endl;
+        }
+		NexDigitronTPMS(){
+		cout<<"NexDigitronTPMS Constructed"<<endl;
+        }
+};
+class BoschTPMS{
+    public:
+    ~BoschTPMS(){
+        cout<<"BoschTPMS Destructed"<<endl;
+        }
+		BoschTPMS(){
+		cout<<"BoschTPMS Constructed"<<endl;
+        }
+};
+ 
+class Engine{
+ 
+    public:
+	~Engine(){
+            cout<<"Engine Destructed"<<endl;
+        }
+      Engine(){
+            cout<<"Engine Constructed"<<endl;
+			}
+	};
+ 
+class Car{
+	Engine engine;
+	BoschTPMS* tpms;
+    string regNumber;
+	public:
+	Car(BoschTPMS* ptr):tpms{ptr}{
+		cout<<"Car Constructed"<<endl;
+	}
+	~Car(){
+			cout<<"Car Destructed"<<endl;
+		}
+	void installTPMS(BoschTPMS* ptr){
+			tpms=ptr;
+	}
+};
+ 
+void buildCar(BoschTPMS* ptr){
+    Car alto{ptr};
+}
+void buildCar(NexDigitronTPMS* ptr){
+    Car swift{ptr};
+}
+ 
+ 
+int main() {
+	BoschTPMS bTpms;
+	NexDigitronTPMS ndTpms;
+    buildCar(&bTpms);
+	buildCar(&ndTpms);
+    return 0;
+}
